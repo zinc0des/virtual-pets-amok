@@ -42,7 +42,7 @@ public class OCatTest {
 	@Test
 	public void feedCatDecreasesHunger() {
 		int hungerBefore = testOCat.getHunger();
-		testOCat.receiveFood(-20);
+		testOCat.changeHunger(-20);
 		int hungerAfter = testOCat.getHunger();
 		assertEquals(hungerAfter, hungerBefore - 20);
 	}
@@ -50,7 +50,7 @@ public class OCatTest {
 	@Test
 	public void waterCatDecreasesThirst() {
 		int thirstBefore = testOCat.getThirst();
-		testOCat.receiveWater(-10);
+		testOCat.changeThirst(-10);
 		int thirstAfter = testOCat.getThirst();
 		assertEquals(thirstAfter, thirstBefore - 10);
 	}
@@ -98,7 +98,7 @@ public class OCatTest {
 	@Test
 	public void catNapIncreasesHappiness() {
 		int hapBefore = testOCat.getHappiness();
-		testOCat.getCatNap(25);
+		testOCat.napCat(25);
 		int hapAfter = testOCat.getHappiness();
 		assertEquals(hapAfter, hapBefore + 25);
 	}

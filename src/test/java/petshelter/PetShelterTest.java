@@ -5,7 +5,6 @@ import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 
 import java.util.Collection;
 
@@ -111,8 +110,8 @@ public class PetShelterTest {
 	@Test
 	public void catWasteCombinesInTheLitterbox() {
 		underTest.petShelterTick();
-		int oCatWaste = testOCat.getWaste();
-		int oCat2Waste = testOCat2.getWaste();
+		int oCatWaste = testOCat.getWasteTick();
+		int oCat2Waste = testOCat2.getWasteTick();
 		int litterBox = underTest.getLitterBox();
 		assertEquals(litterBox, oCatWaste + oCat2Waste);	
 	}

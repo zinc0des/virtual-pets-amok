@@ -1,6 +1,12 @@
 package petshelter;
 
 public class OCat extends Organic {
+	
+	boolean litterBoxFull = false;
+	
+	public void setLitterBoxFull(boolean isFull) {
+		litterBoxFull = isFull;
+	}
 
 	public OCat(String petName, String type, int health, int happiness, int hunger, int thirst, int waste) {
 		super(petName, type, health, happiness, hunger, thirst, waste);
@@ -8,20 +14,23 @@ public class OCat extends Organic {
 
 	public void litterBoxClean(int healthAmount) {
 		int wasteBefore = 0 - getWaste();
-		this.setWaste(wasteBefore);
-		this.setHealth(healthAmount);
+		changeWaste(wasteBefore);
+		changeHealth(healthAmount);
+		litterBoxFull = false;
 	}
 
-	public void getCatNap(int happinessAmount) {
-		this.setHappiness(happinessAmount);
+	public void napCat(int happinessAmount) {
+		this.changeHappiness(happinessAmount);
 	}
 	
 	public void organicCatTick() {
-		setHunger(getHungerTick());
-		setThirst(getThirstTick());
-		setHappiness(getHappinessTick());
-		if (getHunger() > 80 || getThirst() > 80 || getHappiness() < 30) {
-			setHealth(getHealthTick());
+		changeHunger(getHungerTick());
+		changeThirst(getThirstTick());
+		changeHappiness(getHappinessTick());
+		if (getHunger() > 80 || getThirst() > 80 || litterBoxFull || getHappiness() < 30) {
+			changeHealth(getHealthDownTick());
+		} else if (getHunger() < 40 && getThirst() < 40 && !litterBoxFull && getHappiness() > 60) {
+			changeHealth(getHealthUpTick());
 		}
 	}
 	

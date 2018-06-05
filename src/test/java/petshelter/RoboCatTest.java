@@ -58,7 +58,7 @@ public class RoboCatTest {
 	@Test
 	public void roboCatNapIncreasesHappiness() {
 		int hapBefore = testRoboCat.getHappiness();
-		testRoboCat.getCatNap(25);
+		testRoboCat.napCat(25);
 		int hapAfter = testRoboCat.getHappiness();
 		assertEquals(hapAfter, hapBefore + 25);
 	}

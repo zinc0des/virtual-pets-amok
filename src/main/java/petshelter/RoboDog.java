@@ -7,6 +7,6 @@ public class RoboDog extends Robotic {
 	}
 
 	public void walk(int hapAmount) {
-		this.setHappiness(hapAmount);
+		this.changeHappiness(hapAmount);
 	}
 }
