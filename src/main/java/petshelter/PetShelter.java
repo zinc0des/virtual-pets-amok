@@ -13,6 +13,10 @@ public class PetShelter {
 		return litterBox;
 	}
 
+	public void addToLitterBox(int wasteAmount) {
+		litterBox += wasteAmount;
+	}
+
 	public void addPet(Pet newPet) {
 		pets.put(newPet.getPetName(), newPet);
 	}
@@ -47,7 +51,6 @@ public class PetShelter {
 				oPet.changeThirst(waterAmount);
 			}
 		}
-
 	}
 
 	public void oilAllRoboticPets(int healthAmount, int oilAmount) {
@@ -58,9 +61,8 @@ public class PetShelter {
 				rPet.oil(healthAmount, oilAmount);
 			}
 		}
-		
 	}
-	
+
 	public void walkAllDogs() {
 		Collection<Pet> allPets = pets.values();
 		for (Pet pet : allPets) {
@@ -96,7 +98,7 @@ public class PetShelter {
 			}
 		}
 	}
-	
+
 	public void cleanLitterBox() {
 		Collection<Pet> allPets = pets.values();
 		litterBox = 0;
@@ -159,5 +161,4 @@ public class PetShelter {
 
 		}
 	}
-
 }

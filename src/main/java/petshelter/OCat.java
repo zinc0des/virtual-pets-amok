@@ -20,7 +20,11 @@ public class OCat extends Organic {
 	}
 
 	public void napCat(int happinessAmount) {
-		this.changeHappiness(happinessAmount);
+		changeHappiness(happinessAmount);
+	}
+
+	public void getCatNap(int happinessAmount) {
+		changeHappiness(happinessAmount);
 	}
 	
 	public void organicCatTick() {

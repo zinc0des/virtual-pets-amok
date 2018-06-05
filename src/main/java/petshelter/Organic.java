@@ -12,7 +12,7 @@ public class Organic extends Pet {
 	public int getHunger() {
 		return hunger;
 	}
-	
+
 	public int getHungerTick() {
 		return hungerTick;
 	}
@@ -24,7 +24,7 @@ public class Organic extends Pet {
 	public void setThirst(int amount) {
 		thirst = amount;
 	}
-	
+
 	public int getThirstTick() {
 		return thirstTick;
 	}
@@ -32,7 +32,7 @@ public class Organic extends Pet {
 	public int getWaste() {
 		return waste;
 	}
-	
+
 	public int getWasteTick() {
 		return wasteTick;
 	}
@@ -57,11 +57,12 @@ public class Organic extends Pet {
 			hunger = 0;
 		}
 	}
-	
+
 	public void changeThirst(int thirstAmount) {
 		thirst += thirstAmount;
 		if (thirst < 0) {
 			thirst = 0;
 		}
 	}
+
 }

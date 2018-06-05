@@ -7,7 +7,7 @@ public class RoboCat extends Robotic {
 	}
 
 	public void napCat(int happinessAmount) {
-		this.changeHappiness(happinessAmount);
+		changeHappiness(happinessAmount);
 	}
 
 }
