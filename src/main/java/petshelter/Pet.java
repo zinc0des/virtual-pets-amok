@@ -3,6 +3,7 @@ package petshelter;
 public abstract class Pet {
 
 	private String petName;
+	private String type;
 	private int health;
 	private int healthTick = -5;
 	private int happiness;
@@ -10,6 +11,10 @@ public abstract class Pet {
 	
 	public String getPetName() {
 		return petName;
+	}
+	
+	public String getType() {
+		return type;
 	}
 
 	public int getHealth() {
@@ -42,8 +47,9 @@ public abstract class Pet {
 		}
 	}
 
-	public Pet(String petName, int health, int happiness) {
+	public Pet(String petName, String type, int health, int happiness) {
 		this.petName = petName;
+		this.type = type;
 		this.health = health;
 		this.happiness = happiness;
 	}

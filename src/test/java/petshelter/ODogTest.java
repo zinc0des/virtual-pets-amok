@@ -13,8 +13,8 @@ public class ODogTest {
 
 	@Before
 	public void setUp() {
-		testODog = new ODog("Baci", 50, 30, 20, 60, 50);
-		testODog2 = new ODog("Kisses", 75, 35, 40, 70, 50);
+		testODog = new ODog("Baci", "Organic Dog", 50, 32, 20, 60, 50);
+		testODog2 = new ODog("Kisses", "Organic Dog", 75, 35, 40, 70, 50);
 	}
 
 	@Test
@@ -35,7 +35,7 @@ public class ODogTest {
 	public void twoDogsHaveDifferentHappiness() {
 		int happinessLevel = testODog.getHappiness();
 		int happinessLevel2 = testODog2.getHappiness();
-		assertEquals(happinessLevel, 30);
+		assertEquals(happinessLevel, 32);
 		assertEquals(happinessLevel2, 35);
 	}
 
@@ -89,7 +89,7 @@ public class ODogTest {
 	@Test
 	public void tickIncreasesHunger() {
 		int hungerBefore = testODog.getHunger();
-		testODog.organicTick();
+		testODog.organicDogTick();
 		int hungerAfter = testODog.getHunger();
 		assertTrue(hungerAfter > hungerBefore);
 	}
@@ -97,7 +97,7 @@ public class ODogTest {
 	@Test
 	public void tickIncreasesThirst() {
 		int thirstBefore = testODog.getThirst();
-		testODog.organicTick();
+		testODog.organicDogTick();
 		int thirstAfter = testODog.getThirst();
 		assertTrue(thirstAfter > thirstBefore);
 	}
@@ -105,7 +105,7 @@ public class ODogTest {
 	@Test
 	public void tickIncreasesWaste() {
 		int wasteBefore = testODog.getWaste();
-		testODog.organicTick();
+		testODog.organicDogTick();
 		int wasteAfter = testODog.getWaste();
 		assertTrue(wasteAfter > wasteBefore);
 	}
@@ -114,7 +114,15 @@ public class ODogTest {
 	public void healthDecreaseIfThirstIsAbove80() {
 		testODog.setThirst(79);
 		int healthBefore = testODog.getHealth();
-		testODog.organicTick();
+		testODog.organicDogTick();
+		int healthAfter = testODog.getHealth();
+		assertTrue(healthAfter < healthBefore);
+	}
+
+	@Test
+	public void healthDecreasesIfHappinessIsBelow30() {
+		int healthBefore = testODog.getHealth();
+		testODog.organicDogTick();
 		int healthAfter = testODog.getHealth();
 		assertTrue(healthAfter < healthBefore);
 	}

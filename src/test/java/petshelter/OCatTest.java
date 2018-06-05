@@ -13,8 +13,8 @@ public class OCatTest {
 
 	@Before
 	public void setUp() {
-		testOCat = new OCat("Mittens", 50, 30, 20, 60, 50);
-		testOCat2 = new OCat("Teeney", 75, 35, 40, 70, 50);
+		testOCat = new OCat("Mittens", "Organic Cat", 50, 30, 20, 60, 50);
+		testOCat2 = new OCat("Teeney", "Organic Cat", 75, 35, 40, 70, 50);
 	}
 
 	@Test
@@ -73,7 +73,7 @@ public class OCatTest {
 	@Test
 	public void tickIncreasesHunger() {
 		int hungerBefore = testOCat.getHunger();
-		testOCat.organicTick();
+		testOCat.organicCatTick();
 		int hungerAfter = testOCat.getHunger();
 		assertTrue(hungerAfter > hungerBefore);
 	}
@@ -81,24 +81,16 @@ public class OCatTest {
 	@Test
 	public void tickIncreasesThirst() {
 		int thirstBefore = testOCat.getThirst();
-		testOCat.organicTick();
+		testOCat.organicCatTick();
 		int thirstAfter = testOCat.getThirst();
 		assertTrue(thirstAfter > thirstBefore);
-	}
-
-	@Test
-	public void tickIncreasesWaste() {
-		int wasteBefore = testOCat.getWaste();
-		testOCat.organicTick();
-		int wasteAfter = testOCat.getWaste();
-		assertTrue(wasteAfter > wasteBefore);
 	}
 
 	@Test
 	public void healthDecreaseIfThirstIsAbove80() {
 		testOCat.setThirst(79);
 		int healthBefore = testOCat.getHealth();
-		testOCat.organicTick();
+		testOCat.organicCatTick();
 		int healthAfter = testOCat.getHealth();
 		assertTrue(healthAfter < healthBefore);
 	}

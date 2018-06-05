@@ -19,17 +19,20 @@ public class PetShelterTest {
 	RoboCat testRoboCat;
 	RoboDog testRoboDog;
 	OCat testOCat;
+	OCat testOCat2;
 	ODog testODog;
 
 	@Before
 	public void setUp() {
 		underTest = new PetShelter();
-		testRoboCat = new RoboCat("Sparks", 50, 30, 80);
-		testRoboDog = new RoboDog("Bolts", 30, 40, 60);
-		testOCat = new OCat("Teeney", 50, 30, 60, 60, 50);
-		testODog = new ODog("Baci", 50, 30, 50, 60, 50);
+		testRoboCat = new RoboCat("Sparks", "Robot Cat", 50, 30, 80);
+		testRoboDog = new RoboDog("Bolts", "Robot Dog", 30, 40, 60);
+		testOCat = new OCat("Teeney", "Organic Cat", 50, 30, 60, 60, 20);
+		testOCat2 = new OCat("Tiny", "Organic Cat", 50, 30, 60, 60, 30);
+		testODog = new ODog("Baci", "Organic Dog", 50, 30, 50, 60, 50);
 		
 		underTest.addPet(testOCat);
+		underTest.addPet(testOCat2);
 		underTest.addPet(testODog);
 		underTest.addPet(testRoboCat);
 		underTest.addPet(testRoboDog);
@@ -42,10 +45,10 @@ public class PetShelterTest {
 	}
 	
 	@Test
-	public void shouldBeAbleToAddFourPets() {
+	public void shouldBeAbleToAddFivePets() {
 		Collection<Pet> allPets = underTest.getAllPets();
-		assertThat(allPets, containsInAnyOrder(testRoboCat, testOCat, testRoboDog, testODog));
-		assertEquals(4, allPets.size(), 0);
+		assertThat(allPets, containsInAnyOrder(testRoboCat, testOCat, testRoboDog, testODog, testOCat2));
+		assertEquals(5, allPets.size(), 0);
 	}
 	
 	@Test
@@ -84,15 +87,35 @@ public class PetShelterTest {
 		int rCRustLevelBefore = testRoboCat.getRustLevel();
 		int rDRustLevelBefore = testRoboDog.getRustLevel();
 		int oilAmount = -10;
-		underTest.oilAllRoboticPets(oilAmount);
+		int healthAmount = 15;
+		underTest.oilAllRoboticPets(healthAmount, oilAmount);
 		int rCRustLevelAfter = testRoboCat.getRustLevel();
 		int rDRustLevelAfter = testRoboDog.getRustLevel();
 		assertEquals(rCRustLevelAfter, rCRustLevelBefore + oilAmount);
 		assertEquals(rDRustLevelAfter, rDRustLevelBefore + oilAmount);
 	}
 	
+	@Test
+	public void shouldBeAbleToOilAllRoboticPetsAndIncreaseHealth() {
+		int rCHealthBefore = testRoboCat.getHealth();
+		int rDHealthBefore = testRoboDog.getHealth();
+		int oilAmount = -10;
+		int healthAmount = 15;
+		underTest.oilAllRoboticPets(healthAmount, oilAmount);
+		int rCHealthAfter = testRoboCat.getHealth();
+		int rDHealthAfter = testRoboDog.getHealth();
+		assertEquals(rCHealthAfter, rCHealthBefore + healthAmount);
+		assertEquals(rDHealthAfter, rDHealthBefore + healthAmount);
+	}
 	
-	
+	@Test
+	public void catWasteCombinesInTheLitterbox() {
+		underTest.petShelterTick();
+		int oCatWaste = testOCat.getWaste();
+		int oCat2Waste = testOCat2.getWaste();
+		int litterBox = underTest.getLitterBox();
+		assertEquals(litterBox, oCatWaste + oCat2Waste);	
+	}
 	
 	
 }

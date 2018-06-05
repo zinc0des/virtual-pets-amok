@@ -2,8 +2,8 @@ package petshelter;
 
 public class RoboCat extends Robotic {
 
-	public RoboCat(String petName, int health, int happiness, int rustLevel) {
-		super(petName, health, happiness, rustLevel);
+	public RoboCat(String petName, String type, int health, int happiness, int rustLevel) {
+		super(petName, type, health, happiness, rustLevel);
 
 	}
 

@@ -1,6 +1,7 @@
 package petshelter;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,8 +13,8 @@ public class RoboCatTest {
 
 	@Before
 	public void setUp() {
-		testRoboCat = new RoboCat("RoboCat", 50, 30, 20);
-		testRoboCat2 = new RoboCat("Mark", 75, 35, 40);
+		testRoboCat = new RoboCat("RoboCat", "Robot Cat", 50, 32, 20);
+		testRoboCat2 = new RoboCat("Mark", "Robot Cat", 75, 35, 40);
 	}
 
 	@Test
@@ -34,7 +35,7 @@ public class RoboCatTest {
 	public void twoRoboCatsHaveDifferentHappiness() {
 		int happinessLevel = testRoboCat.getHappiness();
 		int happinessLevel2 = testRoboCat2.getHappiness();
-		assertEquals(happinessLevel, 30);
+		assertEquals(happinessLevel, 32);
 		assertEquals(happinessLevel2, 35);
 	}
 	
@@ -60,6 +61,17 @@ public class RoboCatTest {
 		testRoboCat.getCatNap(25);
 		int hapAfter = testRoboCat.getHappiness();
 		assertEquals(hapAfter, hapBefore + 25);
+	}
+	
+	@Test
+	public void healthDecreasesIfHappinessIsBelow30() {
+		System.out.println(testRoboCat.getHappiness());
+		int healthBefore = testRoboCat.getHealth();
+		System.out.println(healthBefore);
+		testRoboCat.roboticTick();
+		int healthAfter = testRoboCat.getHealth();
+		System.out.println(healthAfter);
+		assertTrue(healthAfter < healthBefore);
 	}
 	
 }

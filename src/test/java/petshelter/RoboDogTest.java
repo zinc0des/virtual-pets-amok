@@ -12,8 +12,8 @@ public class RoboDogTest {
 
 	@Before
 	public void setUp() {
-		testRoboDog = new RoboDog("Astro", 50, 30, 20);
-		testRoboDog2 = new RoboDog("Physics", 75, 35, 40);
+		testRoboDog = new RoboDog("Astro", "Robot Dog", 50, 30, 20);
+		testRoboDog2 = new RoboDog("Physics", "Robot Dog", 75, 35, 40);
 	}
 
 	@Test
