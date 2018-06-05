@@ -10,8 +10,8 @@ public class PetShelterApp {
 
 		String menuChoice = "0";
 		PetShelter myShelter = new PetShelter();
-		RoboCat rCat1 = new RoboCat("Sparks", "Robot Cat", 50, 30, 80);
-		RoboDog rDog1 = new RoboDog("Bolts", "Robot Dog", 30, 40, 60);
+		RoboCat rCat1 = new RoboCat("Sparks", "Robotic Cat", 50, 30, 80);
+		RoboDog rDog1 = new RoboDog("Bolts", "Robotic Dog", 30, 40, 60);
 		OCat oCat1 = new OCat("Teeney", "Organic Cat", 50, 30, 60, 60, 20);
 		OCat oCat2 = new OCat("Tiny", "Organic Cat", 50, 30, 60, 60, 30);
 		ODog oDog1 = new ODog("Baci", "Organic Dog", 50, 30, 50, 60, 50);
@@ -29,16 +29,16 @@ public class PetShelterApp {
 			System.out.println();
 			System.out.println("What would you like to do next?");
 			System.out.println();
-			System.out.println("1. Feed all organic pets");
-			System.out.println("2. Water all organic pets");
-			System.out.println("3. Oil all robotic pets");
-			System.out.println("4. Take all dogs for a walk");
-			System.out.println("5. Nap with all the cats");
-			System.out.println("6. Clean all dog cages");
-			System.out.println("6. Clean all dog cages");
-			System.out.println("6. Adopt a pet");
-			System.out.println("7. Admit a new pet");
-			System.out.println("8. Quit");
+			System.out.println(" 1. Feed all organic pets");
+			System.out.println(" 2. Water all organic pets");
+			System.out.println(" 3. Oil all robotic pets");
+			System.out.println(" 4. Take all dogs for a walk");
+			System.out.println(" 5. Nap with all the cats");
+			System.out.println(" 6. Clean all dog cages");
+			System.out.println(" 7. Clean the litter box");
+			System.out.println(" 8. Adopt a pet");
+			System.out.println(" 9. Admit a new pet");
+			System.out.println("10. Quit");
 			System.out.print("> ");
 
 			menuChoice = input.nextLine();
@@ -67,7 +67,12 @@ public class PetShelterApp {
 				myShelter.walkAllDogs();
 				System.out.println("You walked all of the dogs.");			
 				break;
-			
+			case "5":
+				System.out.println();
+				myShelter.petShelterTick();
+				myShelter.napAllCats();
+				System.out.println("You napped with all of the cats.");			
+				break;
 			
 			
 			
@@ -78,5 +83,6 @@ public class PetShelterApp {
 			
 			}
 		}
+		input.close();
 	}
 }

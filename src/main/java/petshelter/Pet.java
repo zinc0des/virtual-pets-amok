@@ -25,22 +25,24 @@ public abstract class Pet {
 		return healthTick;
 	}
 
+	public int getHappiness() {
+		return happiness;
+	}
+	
 	public int getHappinessTick() {
 		return happinessTick;
 	}
 
-	public int getHappiness() {
-		return happiness;
-	}
-
-	public void setHappiness(int amount) {
+	public void changeHappiness(int amount) {
 		this.happiness += amount;
 		if (happiness > 100) {
 			happiness = 100;
+		} else if (happiness < 0) {
+			happiness = 0;
 		}
 	}
 
-	public void setHealth(int amount) {
+	public void changeHealth(int amount) {
 		this.health += amount;
 		if (health > 100) {
 			health = 100;

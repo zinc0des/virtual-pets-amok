@@ -42,7 +42,7 @@ public class ODogTest {
 	@Test
 	public void feedDogDecreasesHunger() {
 		int hungerBefore = testODog.getHunger();
-		testODog.receiveFood(-20);
+		testODog.changeHunger(-20);
 		int hungerAfter = testODog.getHunger();
 		assertEquals(hungerAfter, hungerBefore - 20);
 	}
@@ -50,7 +50,7 @@ public class ODogTest {
 	@Test
 	public void waterDogDecreasesThirst() {
 		int thirstBefore = testODog.getThirst();
-		testODog.receiveWater(-10);
+		testODog.changeThirst(-10);
 		int thirstAfter = testODog.getThirst();
 		assertEquals(thirstAfter, thirstBefore - 10);
 	}

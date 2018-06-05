@@ -8,20 +8,20 @@ public class OCat extends Organic {
 
 	public void litterBoxClean(int healthAmount) {
 		int wasteBefore = 0 - getWaste();
-		this.setWaste(wasteBefore);
-		this.setHealth(healthAmount);
+		changeWaste(wasteBefore);
+		changeHealth(healthAmount);
 	}
 
 	public void getCatNap(int happinessAmount) {
-		this.setHappiness(happinessAmount);
+		changeHappiness(happinessAmount);
 	}
 	
 	public void organicCatTick() {
-		setHunger(getHungerTick());
-		setThirst(getThirstTick());
-		setHappiness(getHappinessTick());
+		changeHunger(getHungerTick());
+		changeThirst(getThirstTick());
+		changeHappiness(getHappinessTick());
 		if (getHunger() > 80 || getThirst() > 80 || getHappiness() < 30) {
-			setHealth(getHealthTick());
+			changeHealth(getHealthTick());
 		}
 	}
 	

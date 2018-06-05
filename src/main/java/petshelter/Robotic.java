@@ -16,14 +16,14 @@ public class Robotic extends Pet {
 
 	public void oil(int healthAmount, int oilAmount) {
 		rustLevel += oilAmount;
-		setHealth(healthAmount);
+		changeHealth(healthAmount);
 	}
 
 	public void roboticTick() {
 		rustLevel += rustLevelTick;
-		setHappiness(getHappinessTick());
+		changeHappiness(getHappinessTick());
 		if (rustLevel > 80 || getHappiness() < 30) {
-			setHealth(getHealthTick());
+			changeHealth(getHealthTick());
 		}
 	}
 
