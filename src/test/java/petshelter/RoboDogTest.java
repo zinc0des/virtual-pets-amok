@@ -28,8 +28,7 @@ public class RoboDogTest {
 	public void twoRoboDogsHaveDifferentHappiness() {
 		int happinessLevel = testRoboDog.getHappiness();
 		int happinessLevel2 = testRoboDog2.getHappiness();
-		assertEquals(happinessLevel, 30);
-		assertEquals(happinessLevel2, 35);
+		assertNotEquals(happinessLevel, happinessLevel2);
 	}
 
 	@Test
