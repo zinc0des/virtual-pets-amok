@@ -69,7 +69,7 @@ public class PetShelter {
 		for (Pet pet : allPets) {
 			if (pet instanceof ODog) {
 				ODog oDog = (ODog) pet;
-				oDog.walk(20, -30);
+				oDog.walk(20, -10);
 			} else if (pet instanceof RoboDog) {
 				RoboDog rDog = (RoboDog) pet;
 				rDog.walk(20);

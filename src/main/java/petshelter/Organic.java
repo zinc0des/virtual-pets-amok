@@ -4,12 +4,12 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Organic extends Pet {
 
-	private int hunger = ThreadLocalRandom.current().nextInt(1, 31);
-	private int hungerTick = ThreadLocalRandom.current().nextInt(1, 6);
-	private int thirst = ThreadLocalRandom.current().nextInt(1, 31);
-	private int thirstTick = ThreadLocalRandom.current().nextInt(1, 6);
-	private int waste = ThreadLocalRandom.current().nextInt(1, 31);
-	private int wasteTick = ThreadLocalRandom.current().nextInt(1, 6);
+	private int hunger = ThreadLocalRandom.current().nextInt(1, 41);
+	private int hungerTick = ThreadLocalRandom.current().nextInt(1, 8);
+	private int thirst = ThreadLocalRandom.current().nextInt(1, 41);
+	private int thirstTick = ThreadLocalRandom.current().nextInt(1, 8);
+	private int waste = ThreadLocalRandom.current().nextInt(1, 41);
+	private int wasteTick = ThreadLocalRandom.current().nextInt(1, 8);
 
 	public int getHunger() {
 		return hunger;

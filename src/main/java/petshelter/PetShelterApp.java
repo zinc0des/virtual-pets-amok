@@ -12,14 +12,20 @@ public class PetShelterApp {
 		PetShelter myShelter = new PetShelter();
 		RoboCat rCat1 = new RoboCat("Sparks", "Robotic Cat");
 		RoboDog rDog1 = new RoboDog("Bolts", "Robotic Dog");
+		RoboDog rDog2 = new RoboDog("Astro", "Robotic Dog");
 		OCat oCat1 = new OCat("Teeney", "Organic Cat");
 		OCat oCat2 = new OCat("Tiny", "Organic Cat");
+		OCat oCat3 = new OCat("Fluffy", "Organic Cat");
 		ODog oDog1 = new ODog("Baci", "Organic Dog");
+		ODog oDog2 = new ODog("Spot", "Organic Dog");
 		myShelter.addPet(rCat1);
 		myShelter.addPet(rDog1);
+		myShelter.addPet(rDog2);
 		myShelter.addPet(oCat1);
 		myShelter.addPet(oCat2);
+		myShelter.addPet(oCat3);
 		myShelter.addPet(oDog1);
+		myShelter.addPet(oDog2);
 
 		System.out.println("Thank you for volunteering at the Amok Pet Shelter!");
 
@@ -52,13 +58,13 @@ public class PetShelterApp {
 			case "2":
 				System.out.println();
 				myShelter.petShelterTick();
-				myShelter.waterAllOrganicPets(-30);
+				myShelter.waterAllOrganicPets(-20);
 				System.out.println("You watered the organic pets.");
 				break;
 			case "3":
 				System.out.println();
 				myShelter.petShelterTick();
-				myShelter.oilAllRoboticPets(40, -20);
+				myShelter.oilAllRoboticPets(30, -20);
 				System.out.println("You oiled the robotic pets.");
 				break;
 			case "4":
