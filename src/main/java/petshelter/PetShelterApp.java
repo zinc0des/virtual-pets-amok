@@ -5,11 +5,12 @@ import java.util.Scanner;
 /*This virtual pet shelter houses virtual pets. Initially, there are 5 pets in the shelter of
 different types(organic cat or dog OR robotic cat or dog). 
 Their status is displayed along with the user menu for interacting with the pets.
-The player can feed and water all the pets, play with any pets, adopt a pet of a given type,
- or admit a new one into the shelter. The new status of the pets is updated after each selection is made 
-from the user menu. The tick method updates after each turn of the game loop. If any pet dies,
-they are removed from the shelter. If all pets die, the game is over. If anytime, the player 
-wants to quit the game, they can do so by typing "Quit".
+The player can feed and water all the organic pets, play with any pets, oil all robotic pets, 
+nap with all the cats, walk all the dogs, clean the cat litterbox, clean all dog cages, adopt
+a pet of a given type, or admit a new one into the shelter. The new status of the pets is 
+updated after each selection is made from the user menu. The tick method updates after each
+turn of the game loop. If any pet dies, they are removed from the shelter. If all pets die, 
+the game is over. If anytime, the player wants to quit the game, they can do so by typing "Quit".
 */
 
 public class PetShelterApp {
