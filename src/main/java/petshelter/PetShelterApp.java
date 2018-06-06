@@ -2,12 +2,23 @@ package petshelter;
 
 import java.util.Scanner;
 
+/*This virtual pet shelter houses virtual pets. Initially, there are 5 pets in the shelter of
+different types(organic cat or dog OR robotic cat or dog). 
+Their status is displayed along with the user menu for interacting with the pets.
+The player can feed and water all the pets, play with any pets, adopt a pet of a given type,
+ or admit a new one into the shelter. The new status of the pets is updated after each selection is made 
+from the user menu. The tick method updates after each turn of the game loop. If any pet dies,
+they are removed from the shelter. If all pets die, the game is over. If anytime, the player 
+wants to quit the game, they can do so by typing "Quit".
+*/
+
 public class PetShelterApp {
 
 	public static void main(String[] args) {
 
 		Scanner input = new Scanner(System.in);
 
+//Initialized the pets 
 		String menuChoice = "0";
 		PetShelter myShelter = new PetShelter();
 		RoboCat rCat1 = new RoboCat("Sparks", "Robotic Cat");
@@ -18,6 +29,8 @@ public class PetShelterApp {
 		OCat oCat3 = new OCat("Fluffy", "Organic Cat");
 		ODog oDog1 = new ODog("Baci", "Organic Dog");
 		ODog oDog2 = new ODog("Spot", "Organic Dog");
+
+//Pets added to the shelter here
 		myShelter.addPet(rCat1);
 		myShelter.addPet(rDog1);
 		myShelter.addPet(rDog2);
@@ -29,8 +42,11 @@ public class PetShelterApp {
 
 		System.out.println("Thank you for volunteering at the Amok Pet Shelter!");
 
+// Game loop begins here
 		while (!menuChoice.equals("10")) {
 			System.out.println();
+			
+//Prints out stats for all pets
 			myShelter.showPetStats();
 			System.out.println();
 			System.out.println("What would you like to do next?");
@@ -47,6 +63,7 @@ public class PetShelterApp {
 			System.out.println("10. Quit");
 			System.out.print("> ");
 
+//User interaction begins			
 			menuChoice = input.nextLine();
 			switch (menuChoice) {
 			case "1":
