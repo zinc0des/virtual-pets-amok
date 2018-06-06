@@ -17,6 +17,9 @@ public class Robotic extends Pet {
 
 	public void oil(int healthAmount, int oilAmount) {
 		rustLevel += oilAmount;
+		if (rustLevel < 0) {
+			rustLevel = 0;
+		}
 		changeHealth(healthAmount);
 	}
 

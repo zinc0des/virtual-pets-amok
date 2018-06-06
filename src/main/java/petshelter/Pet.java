@@ -64,4 +64,8 @@ public abstract class Pet {
 			health = 100;
 		}
 	}
+
+	public String nameType() {
+		return petName + " is a " + type + ".";
+	}
 }

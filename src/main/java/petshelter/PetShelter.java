@@ -142,7 +142,7 @@ public class PetShelter {
 	public void showPetStats() {
 		Collection<Pet> allPets = pets.values();
 		System.out.println("This is the status of your organic pets:");
-		System.out.println("Name \t\t |Type \t\t |Health \t |Happiness \t |Hunger \t |Thirst \t |Waste");
+		System.out.println("Name \t\t |Type \t\t |Health \t |Happiness \t |Hunger \t |Thirst \t |Cage Waste");
 		System.out.println(
 				"-----------------|---------------|---------------|---------------|---------------|---------------|---------------");
 		for (Pet pet : allPets) {
@@ -160,6 +160,21 @@ public class PetShelter {
 				System.out.println(pet.toString());
 			}
 
+		}
+	}
+	
+	public String formatPetName(String originalName) {
+		String lowerCasePetName = originalName.toLowerCase();
+		String firstLetter = lowerCasePetName.substring(0, 1);
+		firstLetter = firstLetter.toUpperCase();
+		String restOfName = lowerCasePetName.substring(1);
+		return firstLetter + restOfName;
+	}
+	
+	public void showPetNameType() {
+		Collection<Pet> allPets = pets.values();
+		for (Pet pet : allPets) {
+			System.out.println(pet.nameType());
 		}
 	}
 }

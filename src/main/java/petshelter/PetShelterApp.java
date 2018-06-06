@@ -86,11 +86,59 @@ public class PetShelterApp {
 				System.out.println("You cleaned out the litter box.");
 				break;
 			case "8":
+				System.out.println();
+				System.out.println("You'd like to adopt a pet.");
+				myShelter.showPetNameType();
+				System.out.println();
+				System.out.println("Which pet would you like to adopt?");
+				System.out.print("> ");
+				String petName = input.nextLine();
+				String formattedPetName = myShelter.formatPetName(petName);
+				Pet retrievedPet = myShelter.findPet(formattedPetName);
+				myShelter.removePet(retrievedPet);
+				System.out.println("You adopted " + formattedPetName + ".");
+				myShelter.petShelterTick();
 				break;
 			case "9":
+				System.out.println();
+				System.out.println("You'd like to admit a new pet. Here are the pet types:");
+				System.out.println(" 1. Organic Cat");
+				System.out.println(" 2. Organic Dog");
+				System.out.println(" 3. Robotic Cat");
+				System.out.println(" 4. Robotic Dog");
+				System.out.print("Please enter the number that is next to the pet type you are admitting: ");
+				String newPetType = input.nextLine();
+				System.out.print("Please enter the pet's name: ");
+				String newPetName = input.nextLine();
+				String newPetNameFormatted = myShelter.formatPetName(newPetName);
+				switch (newPetType) {
+				case "1":
+					OCat newOCat = new OCat(newPetNameFormatted, "Organic Cat");
+					myShelter.addPet(newOCat);
+					System.out.println(newOCat.getPetName() + " is a new Organic Cat in the shelter.");
+					break;
+				case "2":
+					ODog newODog = new ODog(newPetNameFormatted, "Organic Dog");
+					myShelter.addPet(newODog);
+					System.out.println(newODog.getPetName() + " is a new Organic Dog in the shelter.");
+					break;
+				case "3":
+					RoboCat newRoboCat = new RoboCat(newPetNameFormatted, "Robotic Cat");
+					myShelter.addPet(newRoboCat);
+					System.out.println(newRoboCat.getPetName() + " is a new Robotic Cat in the shelter.");
+					break;
+				case "4":
+					RoboDog newRoboDog = new RoboDog(newPetNameFormatted, "Robotic Dog");
+					myShelter.addPet(newRoboDog);
+					System.out.println(newRoboDog.getPetName() + " is a new Robotic Dog in the shelter.");
+					break;
+				}
+				myShelter.petShelterTick();
 				break;
 			}
 		}
+		System.out.println();
+		System.out.println("Thank you for volunteering at the shelter!");
 		input.close();
 	}
 }
