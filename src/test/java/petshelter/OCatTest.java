@@ -1,6 +1,7 @@
 package petshelter;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
@@ -13,54 +14,46 @@ public class OCatTest {
 
 	@Before
 	public void setUp() {
-		testOCat = new OCat("Mittens", "Organic Cat", 50, 30, 20, 60, 50);
-		testOCat2 = new OCat("Teeney", "Organic Cat", 75, 35, 40, 70, 50);
-	}
-
-	@Test
-	public void shouldHaveHealth() {
-		int healthLevel = testOCat.getHealth();
-		assertEquals(healthLevel, 50);
+		testOCat = new OCat("Mittens", "Organic Cat");
+		testOCat2 = new OCat("Teeney", "Organic Cat");
 	}
 
 	@Test
 	public void twoCatsHaveDifferentHealth() {
 		int healthLevel = testOCat.getHealth();
 		int healthLevel2 = testOCat2.getHealth();
-		assertEquals(healthLevel, 50);
-		assertEquals(healthLevel2, 75);
+		assertNotEquals(healthLevel, healthLevel2);
 	}
 
 	@Test
 	public void twoCatsHaveDifferentHappiness() {
 		int happinessLevel = testOCat.getHappiness();
 		int happinessLevel2 = testOCat2.getHappiness();
-		assertEquals(happinessLevel, 30);
-		assertEquals(happinessLevel2, 35);
+		assertNotEquals(happinessLevel, happinessLevel2);
 	}
 
 	@Test
 	public void feedCatDecreasesHunger() {
 		int hungerBefore = testOCat.getHunger();
-		testOCat.changeHunger(-20);
+		testOCat.changeHunger(-5);
 		int hungerAfter = testOCat.getHunger();
-		assertEquals(hungerAfter, hungerBefore - 20);
+		assertEquals(hungerAfter, hungerBefore - 5);
 	}
 
 	@Test
 	public void waterCatDecreasesThirst() {
 		int thirstBefore = testOCat.getThirst();
-		testOCat.changeThirst(-10);
+		testOCat.changeThirst(-5);
 		int thirstAfter = testOCat.getThirst();
-		assertEquals(thirstAfter, thirstBefore - 10);
+		assertEquals(thirstAfter, thirstBefore - 5);
 	}
 
 	@Test
 	public void aCleanLitterBoxIncreasesHealth() {
 		int healthBefore = testOCat.getHealth();
-		testOCat.litterBoxClean(25);
+		testOCat.litterBoxClean(5);
 		int healthAfter = testOCat.getHealth();
-		assertEquals(healthAfter, healthBefore + 25);
+		assertEquals(healthAfter, healthBefore + 5);
 	}
 
 	@Test
@@ -88,7 +81,7 @@ public class OCatTest {
 
 	@Test
 	public void healthDecreaseIfThirstIsAbove80() {
-		testOCat.setThirst(79);
+		testOCat.setThirst(80);
 		int healthBefore = testOCat.getHealth();
 		testOCat.organicCatTick();
 		int healthAfter = testOCat.getHealth();
@@ -98,9 +91,9 @@ public class OCatTest {
 	@Test
 	public void catNapIncreasesHappiness() {
 		int hapBefore = testOCat.getHappiness();
-		testOCat.napCat(25);
+		testOCat.napCat(5);
 		int hapAfter = testOCat.getHappiness();
-		assertEquals(hapAfter, hapBefore + 25);
+		assertEquals(hapAfter, hapBefore + 5);
 	}
 
 }

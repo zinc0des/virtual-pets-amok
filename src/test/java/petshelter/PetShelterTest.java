@@ -24,11 +24,11 @@ public class PetShelterTest {
 	@Before
 	public void setUp() {
 		underTest = new PetShelter();
-		testRoboCat = new RoboCat("Sparks", "Robot Cat", 50, 30, 80);
-		testRoboDog = new RoboDog("Bolts", "Robot Dog", 30, 40, 60);
-		testOCat = new OCat("Teeney", "Organic Cat", 50, 30, 60, 60, 20);
-		testOCat2 = new OCat("Tiny", "Organic Cat", 50, 30, 60, 60, 30);
-		testODog = new ODog("Baci", "Organic Dog", 50, 30, 50, 60, 50);
+		testRoboCat = new RoboCat("Sparks", "Robot Cat");
+		testRoboDog = new RoboDog("Bolts", "Robot Dog");
+		testOCat = new OCat("Teeney", "Organic Cat");
+		testOCat2 = new OCat("Tiny", "Organic Cat");
+		testODog = new ODog("Baci", "Organic Dog");
 		
 		underTest.addPet(testOCat);
 		underTest.addPet(testOCat2);
@@ -61,7 +61,7 @@ public class PetShelterTest {
 	public void shouldBeAbleToFeedAllOrganicPets() {
 		int oCHungerBefore = testOCat.getHunger();
 		int oDHungerBefore = testODog.getHunger();
-		int feedAmount = -20;
+		int feedAmount = -5;
 		underTest.feedAllOrganicPets(feedAmount);
 		int oCHungerAfter = testOCat.getHunger();
 		int oDHungerAfter = testODog.getHunger();
@@ -73,7 +73,7 @@ public class PetShelterTest {
 	public void shouldBeAbleToWaterAllOrganicPets() {
 		int oCThirstBefore = testOCat.getThirst();
 		int oDThirstBefore = testODog.getThirst();
-		int waterAmount = -10;
+		int waterAmount = -5;
 		underTest.waterAllOrganicPets(waterAmount);
 		int oCThirstAfter = testOCat.getThirst();
 		int oDThirstAfter = testODog.getThirst();
@@ -99,7 +99,7 @@ public class PetShelterTest {
 		int rCHealthBefore = testRoboCat.getHealth();
 		int rDHealthBefore = testRoboDog.getHealth();
 		int oilAmount = -10;
-		int healthAmount = 15;
+		int healthAmount = 5;
 		underTest.oilAllRoboticPets(healthAmount, oilAmount);
 		int rCHealthAfter = testRoboCat.getHealth();
 		int rDHealthAfter = testRoboDog.getHealth();

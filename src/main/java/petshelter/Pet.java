@@ -1,14 +1,16 @@
 package petshelter;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public abstract class Pet {
 
 	private String petName;
 	private String type;
-	private int health;
-	private int healthDownTick = -5;
-	private int healthUpTick = 5;
-	private int happiness;
-	private int happinessTick = -5;
+	private int health = ThreadLocalRandom.current().nextInt(80, 101);
+	private int healthDownTick = ThreadLocalRandom.current().nextInt(-5, 0);
+	private int healthUpTick = ThreadLocalRandom.current().nextInt(1, 6);
+	private int happiness = ThreadLocalRandom.current().nextInt(70, 101);
+	private int happinessTick = ThreadLocalRandom.current().nextInt(-5, 0);
 	
 	public String getPetName() {
 		return petName;
@@ -34,15 +36,17 @@ public abstract class Pet {
 		return happiness;
 	}
 	
+	public void setHappiness(int amount) {
+		happiness = amount;
+	}
+	
 	public int getHappinessTick() {
 		return happinessTick;
 	}
 	
-	public Pet(String petName, String type, int health, int happiness) {
+	public Pet(String petName, String type) {
 		this.petName = petName;
 		this.type = type;
-		this.health = health;
-		this.happiness = happiness;
 	}
 
 	public void changeHappiness(int amount) {

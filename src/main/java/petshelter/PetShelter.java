@@ -7,6 +7,7 @@ import java.util.Map;
 public class PetShelter {
 
 	int litterBox = 0;
+	
 	Map<String, Pet> pets = new HashMap<String, Pet>();
 
 	public int getLitterBox() {

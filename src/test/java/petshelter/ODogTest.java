@@ -1,6 +1,7 @@
 package petshelter;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
@@ -13,54 +14,46 @@ public class ODogTest {
 
 	@Before
 	public void setUp() {
-		testODog = new ODog("Baci", "Organic Dog", 50, 32, 20, 60, 50);
-		testODog2 = new ODog("Kisses", "Organic Dog", 75, 35, 40, 70, 50);
-	}
-
-	@Test
-	public void shouldHaveHealth() {
-		int healthLevel = testODog.getHealth();
-		assertEquals(healthLevel, 50);
+		testODog = new ODog("Baci", "Organic Dog");
+		testODog2 = new ODog("Kisses", "Organic Dog");
 	}
 
 	@Test
 	public void twoDogsHaveDifferentHealth() {
 		int healthLevel = testODog.getHealth();
 		int healthLevel2 = testODog2.getHealth();
-		assertEquals(healthLevel, 50);
-		assertEquals(healthLevel2, 75);
+		assertNotEquals(healthLevel, healthLevel2);
 	}
 
 	@Test
 	public void twoDogsHaveDifferentHappiness() {
 		int happinessLevel = testODog.getHappiness();
 		int happinessLevel2 = testODog2.getHappiness();
-		assertEquals(happinessLevel, 32);
-		assertEquals(happinessLevel2, 35);
+		assertNotEquals(happinessLevel, happinessLevel2);
 	}
 
 	@Test
 	public void feedDogDecreasesHunger() {
 		int hungerBefore = testODog.getHunger();
-		testODog.changeHunger(-20);
+		testODog.changeHunger(-5);
 		int hungerAfter = testODog.getHunger();
-		assertEquals(hungerAfter, hungerBefore - 20);
+		assertEquals(hungerAfter, hungerBefore - 5);
 	}
 
 	@Test
 	public void waterDogDecreasesThirst() {
 		int thirstBefore = testODog.getThirst();
-		testODog.changeThirst(-10);
+		testODog.changeThirst(-5);
 		int thirstAfter = testODog.getThirst();
-		assertEquals(thirstAfter, thirstBefore - 10);
+		assertEquals(thirstAfter, thirstBefore - 5);
 	}
 
 	@Test
 	public void walkDogIncreasesHappiness() {
 		int hapBefore = testODog.getHappiness();
-		testODog.walk(25, 25);
+		testODog.walk(5, 25);
 		int hapAfter = testODog.getHappiness();
-		assertEquals(hapAfter, hapBefore + 25);
+		assertEquals(hapAfter, hapBefore + 5);
 	}
 
 	@Test
@@ -74,9 +67,9 @@ public class ODogTest {
 	@Test
 	public void cleanCageIncreasesHealth() {
 		int healthBefore = testODog.getHealth();
-		testODog.cleanCage(25);
+		testODog.cleanCage(5);
 		int healthAfter = testODog.getHealth();
-		assertEquals(healthAfter, healthBefore + 25);
+		assertEquals(healthAfter, healthBefore + 5);
 	}
 
 	@Test
@@ -112,7 +105,7 @@ public class ODogTest {
 
 	@Test
 	public void healthDecreaseIfThirstIsAbove80() {
-		testODog.setThirst(79);
+		testODog.setThirst(80);
 		int healthBefore = testODog.getHealth();
 		testODog.organicDogTick();
 		int healthAfter = testODog.getHealth();
@@ -121,6 +114,7 @@ public class ODogTest {
 
 	@Test
 	public void healthDecreasesIfHappinessIsBelow30() {
+		testODog.setHappiness(31);
 		int healthBefore = testODog.getHealth();
 		testODog.organicDogTick();
 		int healthAfter = testODog.getHealth();

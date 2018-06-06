@@ -1,13 +1,15 @@
 package petshelter;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Organic extends Pet {
 
-	private int hunger;
-	private int hungerTick = 5;
-	private int thirst;
-	private int thirstTick = 5;
-	private int waste;
-	private int wasteTick = 5;
+	private int hunger = ThreadLocalRandom.current().nextInt(1, 31);
+	private int hungerTick = ThreadLocalRandom.current().nextInt(1, 6);
+	private int thirst = ThreadLocalRandom.current().nextInt(1, 31);
+	private int thirstTick = ThreadLocalRandom.current().nextInt(1, 6);
+	private int waste = ThreadLocalRandom.current().nextInt(1, 31);
+	private int wasteTick = ThreadLocalRandom.current().nextInt(1, 6);
 
 	public int getHunger() {
 		return hunger;
@@ -19,11 +21,7 @@ public class Organic extends Pet {
 
 	public int getThirst() {
 		return thirst;
-	}
-	
-	public void setThirst(int amount) {
-		thirst = amount;
-	}
+	}	
 
 	public int getThirstTick() {
 		return thirstTick;
@@ -36,19 +34,13 @@ public class Organic extends Pet {
 	public int getWasteTick() {
 		return wasteTick;
 	}
-
-	public Organic(String petName, String type, int health, int happiness, int hunger, int thirst, int waste) {
-		super(petName, type, health, happiness);
-		this.hunger = hunger;
-		this.thirst = thirst;
-		this.waste = waste;
-	}
 	
-	public void changeWaste(int wasteAmount) {
-		waste += wasteAmount;
-		if (waste < 0) {
-			waste = 0;
-		}
+	public void setThirst(int amount) {
+		thirst = amount;
+	}
+
+	public Organic(String petName, String type) {
+		super(petName, type);
 	}
 	
 	public void changeHunger(int hungerAmount) {
@@ -62,6 +54,13 @@ public class Organic extends Pet {
 		thirst += thirstAmount;
 		if (thirst < 0) {
 			thirst = 0;
+		}
+	}
+	
+	public void changeWaste(int wasteAmount) {
+		waste += wasteAmount;
+		if (waste < 0) {
+			waste = 0;
 		}
 	}
 

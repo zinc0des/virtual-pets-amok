@@ -10,11 +10,11 @@ public class PetShelterApp {
 
 		String menuChoice = "0";
 		PetShelter myShelter = new PetShelter();
-		RoboCat rCat1 = new RoboCat("Sparks", "Robotic Cat", 50, 30, 80);
-		RoboDog rDog1 = new RoboDog("Bolts", "Robotic Dog", 30, 40, 60);
-		OCat oCat1 = new OCat("Teeney", "Organic Cat", 50, 30, 60, 60, 20);
-		OCat oCat2 = new OCat("Tiny", "Organic Cat", 50, 30, 60, 60, 30);
-		ODog oDog1 = new ODog("Baci", "Organic Dog", 50, 30, 50, 60, 50);
+		RoboCat rCat1 = new RoboCat("Sparks", "Robotic Cat");
+		RoboDog rDog1 = new RoboDog("Bolts", "Robotic Dog");
+		OCat oCat1 = new OCat("Teeney", "Organic Cat");
+		OCat oCat2 = new OCat("Tiny", "Organic Cat");
+		ODog oDog1 = new ODog("Baci", "Organic Dog");
 		myShelter.addPet(rCat1);
 		myShelter.addPet(rDog1);
 		myShelter.addPet(oCat1);

@@ -1,17 +1,18 @@
 package petshelter;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Robotic extends Pet {
 
-	private int rustLevel;
-	private int rustLevelTick = 7;
+	private int rustLevel = ThreadLocalRandom.current().nextInt(1, 31);
+	private int rustLevelTick = ThreadLocalRandom.current().nextInt(1, 8);
 
 	public int getRustLevel() {
 		return rustLevel;
 	}
 
-	public Robotic(String petName, String type, int health, int happiness, int rustLevel) {
-		super(petName, type, health, happiness);
-		this.rustLevel = rustLevel;
+	public Robotic(String petName, String type) {
+		super(petName, type);
 	}
 
 	public void oil(int healthAmount, int oilAmount) {

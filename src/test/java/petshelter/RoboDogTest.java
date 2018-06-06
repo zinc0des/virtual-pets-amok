@@ -1,6 +1,7 @@
 package petshelter;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,22 +13,15 @@ public class RoboDogTest {
 
 	@Before
 	public void setUp() {
-		testRoboDog = new RoboDog("Astro", "Robot Dog", 50, 30, 20);
-		testRoboDog2 = new RoboDog("Physics", "Robot Dog", 75, 35, 40);
-	}
-
-	@Test
-	public void shouldHaveHealth() {
-		int healthLevel = testRoboDog.getHealth();
-		assertEquals(healthLevel, 50);
+		testRoboDog = new RoboDog("Astro", "Robot Dog");
+		testRoboDog2 = new RoboDog("Physics", "Robot Dog");
 	}
 
 	@Test
 	public void twoRoboDogsHaveDifferentHealth() {
 		int healthLevel = testRoboDog.getHealth();
 		int healthLevel2 = testRoboDog2.getHealth();
-		assertEquals(healthLevel, 50);
-		assertEquals(healthLevel2, 75);
+		assertNotEquals(healthLevel, healthLevel2);
 	}
 
 	@Test
@@ -57,8 +51,8 @@ public class RoboDogTest {
 	@Test
 	public void oilShouldIncreaseHealth() {
 		int healthBefore = testRoboDog.getHealth();
-		testRoboDog.oil(25, -10);
+		testRoboDog.oil(5, -10);
 		int healthAfter = testRoboDog.getHealth();
-		assertEquals(healthAfter, healthBefore + 25);
+		assertEquals(healthAfter, healthBefore + 5);
 	}
 }

@@ -2,11 +2,11 @@ package petshelter;
 
 public class RoboDog extends Robotic {
 
-	public RoboDog(String petName, String type, int health, int happiness, int rustLevel) {
-		super(petName, type, health, happiness, rustLevel);
+	public RoboDog(String petName, String type) {
+		super(petName, type);
 	}
 
-	public void walk(int hapAmount) {
-		changeHappiness(hapAmount);
+	public void walk(int happinessAmount) {
+		changeHappiness(happinessAmount);
 	}
 }

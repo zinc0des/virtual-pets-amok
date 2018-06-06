@@ -8,8 +8,8 @@ public class OCat extends Organic {
 		litterBoxFull = isFull;
 	}
 
-	public OCat(String petName, String type, int health, int happiness, int hunger, int thirst, int waste) {
-		super(petName, type, health, happiness, hunger, thirst, waste);
+	public OCat(String petName, String type) {
+		super(petName, type);
 	}
 
 	public void litterBoxClean(int healthAmount) {
@@ -20,10 +20,6 @@ public class OCat extends Organic {
 	}
 
 	public void napCat(int happinessAmount) {
-		changeHappiness(happinessAmount);
-	}
-
-	public void getCatNap(int happinessAmount) {
 		changeHappiness(happinessAmount);
 	}
 	

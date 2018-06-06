@@ -2,8 +2,8 @@ package petshelter;
 
 public class ODog extends Organic {
 
-	public ODog(String petName, String type, int health, int happiness, int hunger, int thirst, int waste) {
-		super(petName, type, health, happiness, hunger, thirst, waste);
+	public ODog(String petName, String type) {
+		super(petName, type);
 	}
 
 	public void walk(int hapAmount, int wasteAmount) {
